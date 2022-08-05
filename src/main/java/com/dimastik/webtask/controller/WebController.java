@@ -24,7 +24,6 @@ public class WebController {
 
     private final UserService userService;
 
-
     @Autowired
     public WebController(UserService userService) {
         this.userService = userService;
@@ -66,12 +65,6 @@ public class WebController {
     @GetMapping("/login")
     public String login() {
         return "login";
-    }
-
-    @GetMapping("/manager")
-    public String manager(Model model, Principal principal) {
-        model.addAttribute("username", principal.getName());
-        return "manager";
     }
 
 }

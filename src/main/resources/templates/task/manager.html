@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Менеджер задач</title>
+</head>
+<body>
+<h1>Менеджер задач</h1>
+<p th:text="|Привет, ${username}|">Привет, пользователь</p>
+<br>
+<a href="">Создать новую задачу</a>
+
+<p>Тут будет список задач, в которых будет кнопка "Изменить" "Удалить"</p>
+<div th:if="${tasks.size() > 0}">
+    <table border="1">
+        <tr>
+            <th>id</th>
+            <th>title</th>
+            <th>description</th>
+        </tr>
+        <tr th:each="task : ${tasks}">
+            <td th:utext="${task.getId}">id</td>
+            <td th:utext="${task.getTitle}">title</td>
+            <td th:utext="${task.getDescription}">description</td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
