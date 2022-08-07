@@ -8,7 +8,7 @@
 <h1>Менеджер задач</h1>
 <p th:text="|Привет, ${username}|">Привет, пользователь</p>
 <br>
-<a href="">Создать новую задачу</a>
+<a href="task/taskEditor">Создать новую задачу</a>
 
 <p>Тут будет список задач, в которых будет кнопка "Изменить" "Удалить"</p>
 <div th:if="${tasks.size() > 0}">
@@ -22,9 +22,21 @@
             <td th:utext="${task.getId}">id</td>
             <td th:utext="${task.getTitle}">title</td>
             <td th:utext="${task.getDescription}">description</td>
+            <td>
+                <form th:action="|/task/${task.getId}">
+                    <button type="submit">Открыть</button>
+                </form>
+            </td>
+            <td>
+                <form th:action="|task/taskEditor/${task.getId}" method="get">
+                    <button type="submit">Редактировать</button>
+                </form>
+            </td>
         </tr>
     </table>
 </div>
+<a href="/">Главная</a>
+<a href="/logout">Выйти</a>
 
 </body>
 </html>

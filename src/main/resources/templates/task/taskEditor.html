@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Редактор задачи</h1>
+
+<div>
+    <fieldset>
+        <form th:object="${task}" th:action="@{/task/taskEditor} " method="post">
+            <input type="hidden" th:value="${task.getId}" name="id"/>
+
+            <legend>Редактор</legend>
+            <div>
+                <p>Название задачи:</p>
+                <input th:value="${task.getTitle}" type="text" name="title"/>
+                <div>
+                    <p>Описание:</p>
+                    <textarea th:text="${task.getDescription}" type="text" name="description" cols="21"
+                              rows="10"></textarea>
+                    <br>
+                </div>
+            </div>
+            <p th:if="${save}">Сохранено!</p>
+            <input type="submit" value="Сохранить"/>
+        </form>
+        <form th:action="@{/manager}">
+            <button type="submit">Назад</button>
+        </form>
+    </fieldset>
+
+
+</div>
+
+
+</body>
+</html>
