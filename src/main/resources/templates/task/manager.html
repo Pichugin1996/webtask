@@ -18,8 +18,8 @@
             <th>title</th>
             <th>description</th>
         </tr>
-        <tr th:each="task : ${tasks}">
-            <td th:utext="${task.getId}">id</td>
+        <tr th:each="task, state : ${tasks}">
+            <td th:utext="${state.count}">id</td>
             <td th:utext="${task.getTitle}">title</td>
             <td th:utext="${task.getDescription}">description</td>
             <td>

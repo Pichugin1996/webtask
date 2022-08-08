@@ -1,15 +1,14 @@
 package com.dimastik.webtask.service;
 
 import com.dimastik.webtask.model.Task;
-import com.dimastik.webtask.model.User;
 import com.dimastik.webtask.repository.TaskRepository;
 import com.dimastik.webtask.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.security.Principal;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class TaskService {
@@ -25,10 +24,15 @@ public class TaskService {
 
     public List<Task> getAllTasksByUserNameId(String userName) {
         List<Optional<Task>> optionals = taskRepository.findByUserNameId(getUserNameId(userName));
-        List<Task> list = optionals.stream().map(task -> task.get()).toList();
+        ArrayList<Task> list = optionals.stream().map(task -> task.get()).collect(Collectors.toCollection(ArrayList::new));
+        Collections.sort(list, new Comparator<Task>() {
+            @Override
+            public int compare(Task o1, Task o2) {
+                return o1.getId().compareTo(o2.getId());
+            }
+        });
         return list;
     }
-
 
     public Task getTaskById(Long id, String username) {
         Task task = taskRepository.findById(id).orElse(new Task());
