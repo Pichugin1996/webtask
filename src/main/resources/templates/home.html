@@ -14,7 +14,7 @@
 <a href="/registration" sec:authorize="isAnonymous()">Зарегистрироваться</a>
 <a href="/login" sec:authorize="isAnonymous()">Войти</a>
 <a href="/manager" sec:authorize="isAuthenticated()">Менеджер</a>
-<a href="/manager" sec:authorize="hasRole('ADMIN')">Админка</a>
+<a href="/adminPanel" sec:authorize="hasRole('ADMIN')">Админка</a>
 <a href="/account" sec:authorize="isAuthenticated()">Личный кабинет</a>
 <a href="/logout" sec:authorize="isAuthenticated()">Выйти</a>
 

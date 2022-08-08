@@ -22,7 +22,7 @@ public class SecurityConfig {
                 .authorizeRequests()
                 .antMatchers("/manager").hasAnyRole("ADMIN", "USER")
                 .antMatchers("/account").hasAnyRole("ADMIN", "USER")
-                .antMatchers("/admin").hasAnyRole("ADMIN")
+                .antMatchers("/adminPanel/**").hasAnyRole("ADMIN")
                 .antMatchers("/").permitAll()
                 .antMatchers("/registration").permitAll()
                 .anyRequest().authenticated()

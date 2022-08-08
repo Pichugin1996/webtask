@@ -1,11 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Администраторска</title>
 </head>
 <body>
 <h1>Админитсраторска</h1>
+
+<div th:if="${!users.isEmpty()}">
+    <table border="1">
+        <tr>
+            <th>№</th>
+            <th>id</th>
+            <th>Имя</th>
+            <th>Роль</th>
+            <th>Статус</th>
+        </tr>
+        <tr th:each="user, state : ${users}">
+            <td th:utext="${state.count}">№</td>
+            <td th:utext="${user.getId}">id</td>
+            <td th:utext="${user.getUsername}">Имя</td>
+            <td th:utext="${user.getRole}">Роль</td>
+            <td th:utext="${user.getStatus}">Статус</td>
+
+            <td th:if="${user.getRole != 'ADMIN'}">
+                <form th:action="|/adminPanel/admin/${user.getId}" th:method="post">
+                    <button type="submit"
+                            th:onclick="if(!(confirm('Вы действительно хотите сделать админом?') )) return false">
+                        Сделать админом
+                    </button>
+                </form>
+            </td>
+
+            <td th:if="${user.getRole != 'USER'}">
+                <form th:action="|/adminPanel/user/${user.getId}" th:method="post">
+                    <button type="submit"
+                            th:onclick="if(!(confirm('Вы действительно хотите сделать пользователем?') )) return false">
+                        Сделать пользователем
+                    </button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+<a href="/">Главная</a>
+<a href="/logout">Выйти</a>
+
 
 </body>
 </html>

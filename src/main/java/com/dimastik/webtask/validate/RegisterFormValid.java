@@ -40,9 +40,9 @@ public class RegisterFormValid {
         }
 
         //Проверка пользователя
-        if (form.getUsername().length() >= 21 || form.getUsername().length() <= 7) {
+        if (form.getUsername().length() >= 21 || form.getUsername().length() <= 4) {
             result.rejectValue("username", "error.username",
-                    "Логин должен содержать от 8 до 20 символов.");
+                    "Логин должен содержать от 5 до 20 символов.");
             error = true;
         }
 

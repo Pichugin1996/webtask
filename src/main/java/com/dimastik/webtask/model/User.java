@@ -34,11 +34,21 @@ public class User {
     @Column(name = "role")
     private String role;
 
-    public User(String username, String password, String role) {
+    @Column(name = "status")
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
+    public User(String username, String password, String role, Status status) {
         this.username = username;
         this.password = password;
         this.role = role;
+        this.status = status;
     }
+
+    public enum Status {
+        ACTIVE, BAN, DELETE;
+    }
+
 }
 
 
