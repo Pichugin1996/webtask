@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 
@@ -37,6 +34,12 @@ public class TaskController {
     public String getTaskById(@PathVariable Long id, Model model, Principal principal) {
         model.addAttribute("task", taskService.getTaskById(id, principal.getName()));
         return "/task/task";
+    }
+
+    @PostMapping("/task/{id}")
+    public String deleteTask(@PathVariable Long id, Model model, Principal principal) {
+        taskService.deleteTask(id, principal.getName());
+        return "redirect:/manager";
     }
 
     @GetMapping("/task/taskEditor/{id}")

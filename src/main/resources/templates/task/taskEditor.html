@@ -11,6 +11,7 @@
     <fieldset>
         <form th:object="${task}" th:action="@{/task/taskEditor} " method="post">
             <input type="hidden" th:value="${task.getId}" name="id"/>
+            <input type="hidden" th:value="${task.getStatus}" name="status"/>
 
             <legend>Редактор</legend>
             <div>

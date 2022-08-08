@@ -5,9 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 
 
 @Entity
@@ -33,6 +31,7 @@ public class User {
     @Transient
     private String passwordConfirm;
 
+    @Column(name = "role")
     private String role;
 
     public User(String username, String password, String role) {
