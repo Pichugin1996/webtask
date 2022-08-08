@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменить пароль</title>
+</head>
+<body>
+<h1>Смена пароля</h1>
+
+<div>
+    <fieldset>
+        <form th:action="@{/userEditor}" method="post" th:object="${user}">
+            <fieldset>
+                <legend>Смена пароля</legend>
+                <div>
+                    <div>
+                        <input type="password" name="password" placeholder="Password"/>
+                        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Пароль должен содержать от 5
+                            до 20 символов</p>
+                    </div>
+                    <div>
+                        <input type="password" name="passwordConfirm" placeholder="passwordConfirm"/>
+                        <p th:if="${#fields.hasErrors('passwordConfirm')}" th:errors="*{passwordConfirm}">Пароли не
+                            совпадают</p>
+                    </div>
+                </div>
+
+                <input type="submit" value="Сохранить"/>
+            </fieldset>
+        </form>
+    </fieldset>
+</div>
+
+
+</body>
+</html>

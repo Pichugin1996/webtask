@@ -22,44 +22,9 @@ import java.security.Principal;
 @Slf4j
 public class WebController {
 
-    private final UserService userService;
-
-    @Autowired
-    public WebController(UserService userService) {
-        this.userService = userService;
-    }
-
     @GetMapping("/")
     public String home(Model model) {
         return "home";
-    }
-
-    @GetMapping("/registration")
-    public String registration(Model model) {
-        model.addAttribute("user", new User());
-        return "registration";
-    }
-
-    @PostMapping("/registration")
-    public String registration(@ModelAttribute("user") @Valid User form,
-                               BindingResult result, Model model, HttpServletRequest request) {
-        new RegisterFormValid().validForm(form, result, userService);
-        if (result.hasErrors()) {
-            return "registration";
-        }
-        userService.createUser(form.getUsername(), form.getPassword());
-        try {
-            request.login(form.getUsername(), form.getPassword());
-        } catch (ServletException e) {
-            throw new RuntimeException(e);
-        }
-        return "redirect:/account";
-    }
-
-    @GetMapping("/account")
-    public String account(Model model, Principal principal) {
-        model.addAttribute("username", principal.getName());
-        return "account";
     }
 
     @GetMapping("/login")
