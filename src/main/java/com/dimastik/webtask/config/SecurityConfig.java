@@ -22,15 +22,14 @@ public class SecurityConfig {
                 .antMatchers("/manager").hasAnyRole("ADMIN", "USER")
                 .antMatchers("/account").hasAnyRole("ADMIN", "USER")
                 .antMatchers("/admin").hasAnyRole("ADMIN")
-                .antMatchers("/**").permitAll()
+                .antMatchers("/").permitAll()
                 .antMatchers("/registration").permitAll()
+                .anyRequest().authenticated()
                 .and()
                 .formLogin(form -> form
                         .loginPage("/login")
                         .defaultSuccessUrl("/")
-                        .permitAll())
-                .csrf().disable();
-
+                        .permitAll());
         return http.build();
     }
 

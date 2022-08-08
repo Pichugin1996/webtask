@@ -16,11 +16,12 @@
             <div>
                 <p>Название задачи:</p>
                 <input th:value="${task.getTitle}" type="text" name="title"/>
+                <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Введите название!</p>
                 <div>
                     <p>Описание:</p>
                     <textarea th:text="${task.getDescription}" type="text" name="description" cols="21"
                               rows="10"></textarea>
-                    <br>
+                    <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Введите описание!</p>
                 </div>
             </div>
             <p th:if="${save}">Сохранено!</p>

@@ -2,10 +2,12 @@ package com.dimastik.webtask.controller;
 
 import com.dimastik.webtask.model.Task;
 import com.dimastik.webtask.service.TaskService;
+import com.dimastik.webtask.validate.TaskFormValid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -45,7 +47,14 @@ public class TaskController {
     }
 
     @PostMapping("/task/taskEditor")
-    public String editorSave(@ModelAttribute("task") Task task, Model model, Principal principal) {
+    public String editorSave(@ModelAttribute("task") Task task,
+                             Model model,
+                             Principal principal,
+                             BindingResult bindingResult) {
+        new TaskFormValid().validForm(task, bindingResult);
+        if (bindingResult.hasErrors()) {
+            return "/task/taskEditor";
+        }
         taskService.saveTask(task, principal);
         model.addAttribute("save", "Сохранено!");
         return "/task/taskEditor";

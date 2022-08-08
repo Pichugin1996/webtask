@@ -3,9 +3,6 @@ package com.dimastik.webtask.validate;
 import com.dimastik.webtask.model.User;
 import com.dimastik.webtask.service.UserService;
 import lombok.NoArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.validation.BindingResult;
 
 import java.util.regex.Matcher;
