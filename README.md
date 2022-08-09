@@ -61,8 +61,8 @@ git clone git@github.com:Pichugin1996/webtask.git
 </details>
 
 <h3>В проекте используется:</h3>
-Spring security
-Spring boot
-Spring data
-Spring web
-Thymeleaf
+Spring security,
+Spring boot,
+Spring data,
+Spring web,
+Thymeleaf.
