@@ -7,6 +7,7 @@
 <body>
 <h1>Task manager</h1>
 <p>Добро пожаловать в менеджер задач.</p>
+<p sec:authorize="isAuthenticated()" th:text="|Вы вошли как ${username}|">Привет, пользователь</p>
 <div  sec:authorize="isAnonymous()">
     <p>Для начала работы войдите или авторизируйтесь!</p>
 </div>
