@@ -12,27 +12,40 @@ git clone git@github.com:Pichugin1996/webtask.git
 Регистрация пользователя
 <details>
 <summary>Изображение</summary>
-![](img/register.jpg)
+  
+![](imgReadme/register.jpg)
+  
 </details>
 
 Авторизация пользователя
-[SPOILER]![](img/login.jpg)[/SPOILER]
+<details>
+<summary>Изображение</summary>
+  
+![](imgReadme/login.jpg)
+  
+</details>
 
 Смена пароля у пользователя
 <details>
 <summary>Изображение</summary>
-![](img/repass.jpg)
+  
+![](imgReadme/repass.jpg)
+  
 </details>
 
 Создание, редактирование, удаление задачи
 <details>
 <summary>Изображение</summary>
-![](img/manager.jpg)
-![](img/taskeditor.jpg)
+  
+![](imgReadme/manager.jpg)
+![](imgReadme/taskeditor.jpg)
+  
 </details>
 
 Создания пользователя с ролью администратора, который может выдавать роли из админ панели
 <details>
 <summary>Изображение</summary>
-![](img/adminpanel.jpg)
+  
+![](imgReadme/adminpanel.jpg)
+  
 </details>
