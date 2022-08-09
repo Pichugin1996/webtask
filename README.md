@@ -16,11 +16,7 @@ git clone git@github.com:Pichugin1996/webtask.git
 </details>
 
 Авторизация пользователя
-<details>
-<summary>Изображение</summary>
-![](img/login.jpg)
-</details>
-
+[SPOILER]![](img/login.jpg)[/SPOILER]
 
 Смена пароля у пользователя
 <details>
