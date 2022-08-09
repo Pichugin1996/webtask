@@ -7,11 +7,17 @@ Ver. 1.1
 ```
 git clone git@github.com:Pichugin1996/webtask.git
 ```
-Возможности:
+<h3>Возможности:</h3>
 
 Регистрация пользователя
 <details>
 <summary>Изображение</summary>
+
+Используется валидатор, при ошибках выводятся сообщения.
+
+Осуществляется проверка на наличие уже существуещего пользователя.
+
+Пароль хранится в виде кеша (BCrypt).
   
 ![](imgReadme/register.jpg)
   
@@ -20,6 +26,8 @@ git clone git@github.com:Pichugin1996/webtask.git
 Авторизация пользователя
 <details>
 <summary>Изображение</summary>
+
+Выводятся сообщения при ошибках.
   
 ![](imgReadme/login.jpg)
   
@@ -28,6 +36,7 @@ git clone git@github.com:Pichugin1996/webtask.git
 Смена пароля у пользователя
 <details>
 <summary>Изображение</summary>
+Выводятся сообщения при ошибках, используется валидатор.
   
 ![](imgReadme/repass.jpg)
   
@@ -36,6 +45,7 @@ git clone git@github.com:Pichugin1996/webtask.git
 Создание, редактирование, удаление задачи
 <details>
 <summary>Изображение</summary>
+Выводятся сообщения при ошибках, используется валидатор.
   
 ![](imgReadme/manager.jpg)
 ![](imgReadme/taskeditor.jpg)
@@ -49,3 +59,10 @@ git clone git@github.com:Pichugin1996/webtask.git
 ![](imgReadme/adminpanel.jpg)
   
 </details>
+
+<h3>В проекте используется:</h3>
+Spring security
+Spring boot
+Spring data
+Spring web
+Thymeleaf
