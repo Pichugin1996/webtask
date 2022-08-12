@@ -55,6 +55,7 @@ public class TaskController {
                              Principal principal,
                              BindingResult bindingResult) {
         new TaskFormValid().validForm(task, bindingResult);
+        log.info(task.toString());
         if (bindingResult.hasErrors()) {
             return "/task/taskEditor";
         }

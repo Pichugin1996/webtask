@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>Менеджер задач</title>
 </head>
 <body>
 <h1>Менеджер задач</h1>
 <p th:text="|Привет, ${username}|">Привет, пользователь</p>
-<br>
+<br/>
 <a href="task/taskEditor">Создать новую задачу</a>
-<br>
+<br/>
 <p th:if="${tasks.isEmpty()}">Пока у вас нету задач, создайте новую!</p>
-<div th:if="${!tasks.isEmpty()}">
+<div th:if="${!tasks.isEmpty()}" id="task_list">
     <table border="1">
         <tr>
             <th>id</th>
             <th>Загаловок</th>
             <th>Описание</th>
         </tr>
-        <tr th:each="task, state : ${tasks}" th:if="${task.getStatus().name() == 'ACTIVE'}">
+        <tr id="task" th:each="task, state : ${tasks}" th:if="${task.getStatus().name() == 'ACTIVE'}">
+
             <td th:utext="${state.count}">id</td>
-            <td th:utext="${task.getTitle}">title</td>
-            <td th:utext="${task.getDescription}">description</td>
+            <td th:utext="${task.getTitle}" id="title">title</td>
+            <td th:utext="${task.getDescription}" id="description">description</td>
             <td>
                 <form th:action="|/task/${task.getId}">
                     <button type="submit">Открыть</button>
@@ -34,9 +35,13 @@
             </td>
             <td>
                 <form th:action="|/task/${task.getId}" th:method="post">
-                    <button type="submit" th:onclick="if(!(confirm('Вы действительно хотите удалить запись?') )) return false">Удалить</button>
+                    <button type="submit"
+                            th:onclick="if(!(confirm('Вы действительно хотите удалить запись?') )) return false">
+                        Удалить
+                    </button>
                 </form>
             </td>
+
         </tr>
     </table>
 </div>

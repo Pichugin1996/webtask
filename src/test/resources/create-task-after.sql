@@ -1,0 +1,1 @@
+DELETE FROM wt_task;

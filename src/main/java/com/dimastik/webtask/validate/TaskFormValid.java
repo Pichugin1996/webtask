@@ -15,6 +15,13 @@ public class TaskFormValid {
 
     public void validForm(Task task, BindingResult result) {
 
+        if (task.getTitle() == null) {
+            task.setTitle("");
+        }
+        if (task.getDescription() == null) {
+            task.setDescription("");
+        }
+
         //Удаляем пробелы
         String title = task.getTitle().replaceAll("\\s+", "");
         String description = task.getDescription().replaceAll("\\s+", "");

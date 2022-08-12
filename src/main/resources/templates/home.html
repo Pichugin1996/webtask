@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="ru" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Главная</title>
 </head>
 <body>
 <h1>Task manager</h1>
 <p>Добро пожаловать в менеджер задач.</p>
-<p sec:authorize="isAuthenticated()" th:text="|Вы вошли как ${username}|">Привет, пользователь</p>
-<div  sec:authorize="isAnonymous()">
+<div sec:authorize="isAuthenticated()" id="hello_user">
+    <p  th:text="|Вы вошли как ${username}|" >Привет, пользователь</p>
+</div>
+<div sec:authorize="isAnonymous()">
     <p>Для начала работы войдите или авторизируйтесь!</p>
 </div>
-<br>
+<br />
 <a href="/registration" sec:authorize="isAnonymous()">Зарегистрироваться</a>
 <a href="/login" sec:authorize="isAnonymous()">Войти</a>
 <a href="/manager" sec:authorize="isAuthenticated()">Менеджер</a>
